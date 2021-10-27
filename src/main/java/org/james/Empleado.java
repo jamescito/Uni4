@@ -26,9 +26,19 @@ public class Empleado  {
         return 0;
     }
 
-    float venta(float dd,float we,float as){
-        
-        return 0;
+    float venta(float ventam,float salariob,float h_e){
+
+        if(ventam >= 1000 && ventasM <=1499){
+            salario_base1 = salariob + 100;
+            salar_h = h_e * 20;
+            salario_bruto = salario_base1 + salar_h;
+        }
+        if(ventam>= 1500){
+            salario_base1 = salariob + 200;
+            salar_h = h_e * 20;
+            salario_bruto = salario_base1 + salar_h;
+        }
+        return salario_bruto;
     }
 
 
