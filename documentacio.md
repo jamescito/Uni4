@@ -1,6 +1,6 @@
 ## Software con unit 4
 
-Este practica trata de resolver un ejercicio donde este trata de salario de un vendedor </br>
+Esta practica trata de resolver un ejercicio donde este trata de salario de un vendedor </br>
 o encargado en caso que nosea asi de ninguno .
 
 Primero que todo podemos ver que declaramos las variables global la que vamos a</br> necesitar, posteriormente la función general que nos facilita el ejercicio que es de</br> tipo float, dentro de la función hacemos lo que es validaciones es decir que tipo</br>  de empleado es, si es vendedor o encargado y con su tipo de salario base en otras palabras </br> lo que gana por contrato.
