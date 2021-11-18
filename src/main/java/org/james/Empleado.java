@@ -2,66 +2,106 @@ package org.james;
 
 public class Empleado  {
 
-    String nombre, apellido, cedula, tipo_empleado;
-    float horas_extras, ventasM, salarioBase = 0;
-    float s_base1 = 0;
-    float s_bruto = 0;
-    float s_neto = 0;
-    float salar_h = 0;
-    float retencion = 0;
+    float calculaSalarioBruto(String tipompleado, float ventasMes, float hExtras)
+    {
 
 
-    float CalcularSalarioBruto(String tipo_empleado,float ventasM, float horas_extras) {
+        if(tipompleado == "vendedor")
+        {
+            float salarioM = 1000;
+            float Salariototal = 0 ;
+            float horas;
+            float vendedor;
 
-            if (tipo_empleado == "vendedor") {
-                
-                salarioBase = 1000;
-                return venta(ventasM, salarioBase, horas_extras);
-            } else if (tipo_empleado == "encargado") {
-                salarioBase = 1500;
-                System.out.println();
-                return venta(ventasM, salarioBase, horas_extras);
+            if(ventasMes >= 1000)
+            {
+                Salariototal= salarioM + 100;
             }
+            if(ventasMes >= 1500)
+            {
+                Salariototal = salarioM + 200;
+            }
+            if(ventasMes == -1)
+            {
+                throw new IllegalArgumentException("El salario es menor que cero no es valido");
+            }
+            if(hExtras == -1)
+            {
+                throw new IllegalArgumentException("las horas son negativas no es valido");
+            }
+            
+            
+            
+
+            horas = hExtras * 20;
+            vendedor = Salariototal + horas;
+            return vendedor;
+
+            
+
+        }
+        else if(tipompleado ==("Encargado"))
+        {
+            float salarioM = 1500;
+            float Salariototal = 0 ;
+            float horas;
+            float encargado;
+
+            if(ventasMes < 1000)
+            {
+
+                horas = hExtras * 20;
+                return salarioM + horas;
+            }
+            if(ventasMes >= 1000)
+            {
+                Salariototal= salarioM + 100;
+            }
+            if(ventasMes >= 1500)
+            {
+                Salariototal = salarioM + 200;
+            }
+
+
+            horas = hExtras * 20;
+            encargado = Salariototal + horas;
+            return encargado;
+        }
+
+        if (tipompleado==null)
+        {
+            throw new IllegalArgumentException("El empleado es nulo es incorrecto");
+            
+        }
 
         return 0;
     }
 
-    float venta(float ventam,float salariob,float h_e){
 
-        if(ventam >= 1000 && ventasM <=1499){
-            s_base1 = salariob + 100;
-            salar_h = h_e * 20;
-            s_bruto = s_base1 + salar_h;
-        }
-        if(ventam>= 1500){
-            s_base1 = salariob + 200;
-            salar_h = h_e * 20;
-            s_bruto = s_base1 + salar_h;
-        }
-        return s_bruto;
-    }
-
-    float SalarioNeto(float salario_bruto){
-
-        if(salario_bruto < 0 ){
-            throw new RuntimeException("Este salario es menor de 0");
-        }
+    double calcularsalarioNeto(float salariobruto)
+    {
         
-        if(salario_bruto < 1000){
-            s_neto = salario_bruto;
-        }
-        else if (salario_bruto >= 1000 && salario_bruto<1500){
-            retencion = (float) 0.16;
-            s_neto = salario_bruto - retencion;
-        }
-        else if (salario_bruto >= 1500){
-            retencion =(float) 0.18;
-            s_neto = salario_bruto - retencion;
-        }
 
-        return s_neto;
+        if(salariobruto < 1000)
+        {
+            return salariobruto;
+        }
+        if(salariobruto >=1000 && salariobruto <1500)
+        {
+           return salariobruto - (salariobruto * 0.16);
+        }
+        if(salariobruto>1500)
+        {
+            return salariobruto - (salariobruto * 0.18);
+
+        }
+        if(salariobruto==-1)
+            {
+                throw new IllegalArgumentException("las horas son negativas no es valido");
+            }
+
+        return 0;
     }
-
 
 
 }
