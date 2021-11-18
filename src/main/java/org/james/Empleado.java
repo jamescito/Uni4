@@ -1,8 +1,8 @@
 package org.james;
 
-public class Empleado  {
+public class Empleado {
 
-    float calculaSalarioBruto(String tipompleado, float ventasMes, float hExtras)
+    float calculaSalarioBruto(String tipompleado, float ventasMes, float hExtras) throws EmpException
     {
 
 
@@ -21,11 +21,18 @@ public class Empleado  {
             {
                 Salariototal = salarioM + 200;
             }
-            if(ventasMes == -1)
+            
+            if(ventasMes == -1.000000)
             {
-                throw new IllegalArgumentException("El salario es menor que cero no es valido");
+                // try{
+                throw new EmpException("El salario es menor que cero no es valido");
+                // }
+                // catch(EmpException e ){
+                //     System.out.println(e.toString());
+                // }
+                
             }
-            if(hExtras == -1)
+            if(hExtras == -1.0)
             {
                 throw new IllegalArgumentException("las horas son negativas no es valido");
             }

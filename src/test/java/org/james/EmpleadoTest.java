@@ -14,13 +14,14 @@ public class EmpleadoTest{
     public ExpectedException exception = ExpectedException.none();
     
     @Test
-    public void quenota()
+    public void quenota() throws EmpException
     {
-        exception.expect(IllegalArgumentException.class);
+        exception.expect(EmpException.class);
         exception.expectMessage("El salario es menor que cero no es valido");
 
         Empleado emp= new Empleado();
         emp.calculaSalarioBruto("vendedor", -1,8);
+
     }
 
     
