@@ -2,7 +2,7 @@ package org.james;
 
 public class Empleado {
 
-    float calculaSalarioBruto(String tipompleado, float ventasMes, float hExtras) throws EmpException
+    public float calculaSalarioBruto(String tipompleado, float ventasMes, float hExtras) throws EmpException
     {
 
 
@@ -32,9 +32,9 @@ public class Empleado {
                 // }
                 
             }
-            if(hExtras == -1.0)
+            if(hExtras == -1.000000)
             {
-                throw new IllegalArgumentException("las horas son negativas no es valido");
+                throw new EmpException("las horas son negativas no es valido");
             }
             
             
@@ -77,7 +77,7 @@ public class Empleado {
 
         if (tipompleado==null)
         {
-            throw new IllegalArgumentException("El empleado es nulo es incorrecto");
+            throw new EmpException("El empleado es nulo es incorrecto");
             
         }
 
@@ -85,10 +85,13 @@ public class Empleado {
     }
 
 
-    double calcularsalarioNeto(float salariobruto)
+    public  double calcularsalarioNeto(float salariobruto) throws EmpException
     {
         
-
+        if(salariobruto<0)
+        {
+            throw new EmpException("quenota");
+        }
         if(salariobruto < 1000)
         {
             return salariobruto;
@@ -102,10 +105,7 @@ public class Empleado {
             return salariobruto - (salariobruto * 0.18);
 
         }
-        if(salariobruto==-1)
-            {
-                throw new IllegalArgumentException("las horas son negativas no es valido");
-            }
+        
 
         return 0;
     }
